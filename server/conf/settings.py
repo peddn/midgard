@@ -44,6 +44,15 @@ except ImportError:
     print("secret_settings.py file not found or failed to import.")
 
 
+
+######################################################################
+# default Typeclasses
+# https://github.com/evennia/evennia/blob/master/evennia/settings_default.py
+######################################################################
+BASE_ROOM_TYPECLASS = "typeclasses.rooms.default.Room"
+
+
+
 GLOBAL_SCRIPTS = {
     # "script_interval": {
     #     "typeclass": "typeclasses.scripts.Interval",
