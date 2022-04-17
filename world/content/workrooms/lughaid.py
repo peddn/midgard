@@ -1,4 +1,4 @@
-from rooms.indoor import RoomIndoor
+from typeclasses.rooms.indoor import RoomIndoor
 
 class WorkroomLughaid(RoomIndoor):
     """
