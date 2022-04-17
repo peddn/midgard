@@ -12,6 +12,7 @@ inheritance.
 """
 from evennia import DefaultObject
 
+from world.util.grammar import Case, Gender
 
 class Object(DefaultObject):
     """
@@ -159,3 +160,13 @@ class Object(DefaultObject):
 
     """
 
+    def at_object_creation(self):
+        self.db.smell = "Es riecht nach absolut gar nichts."
+        sefl.db.gender = Gender.NEUTRUM
+    
+    def return_smell(self, perceptor):
+        """
+        The return from this method is what
+        perceptor smells when smelling at this object.
+        """
+        return self.db.smell

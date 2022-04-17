@@ -1,4 +1,6 @@
 from evennia import Command
+from world.util.grammar import Case, get_def_art
+
 
 class CmdPerceptionSmell(Command):
     """
@@ -18,7 +20,7 @@ class CmdPerceptionSmell(Command):
                     if target is caller:
                         caller.msg("Du riechst an dir.")
                     else:
-                        caller.msg("Du riechts an %s." % target.key)
+                        caller.msg("Du riechts an %s %s." % (get_def_art(target, Case.DAT), target.key))
                     caller.msg(target.return_smell(caller))
                 else:
                     caller.msg("Du riechst absolut gar nichts.")
