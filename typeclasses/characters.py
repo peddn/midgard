@@ -9,7 +9,7 @@ creation commands.
 """
 from evennia import DefaultCharacter
 
-from world.util.grammar import Case
+from world.util.grammar import Gender
 
 from typeclasses.objects import Object
 from commands.perception.cmdset_perception import CmdsetPerception
@@ -38,7 +38,7 @@ class Character(DefaultCharacter):
     def at_object_creation(self):
         self.cmdset.add(CmdsetPerception, permanent=True)
         self.db.smell = "Es riecht nach absolut gar nichts."
-        self.db.gender = Case.MASKULIN
+        self.db.gender = Gender.MASKULIN
     
     def return_smell(self, perceptor):
         """

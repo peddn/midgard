@@ -12,7 +12,7 @@ inheritance.
 """
 from evennia import DefaultObject
 
-from world.util.grammar import Case, Gender
+from world.util.grammar import Gender
 
 class Object(DefaultObject):
     """

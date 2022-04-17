@@ -7,7 +7,7 @@ Rooms are simple containers that has no location of their own.
 
 from evennia import DefaultRoom
 
-from world.util.gramar import Case
+from world.util.gramar import Gender
 
 from typeclasses.objects import Object
 from commands.rooms.cmdset_room import CmdsetRoom
@@ -32,7 +32,7 @@ class Room(DefaultRoom):
         self.db.details = {}
         self.cmdset.add(CmdsetRoom, permanent=True)
         self.db.smell = "Hier riecht es nach absolut gar nichts."
-        self.db.gender = Case.MASKULIN
+        self.db.gender = Gender.MASKULIN
 
     def return_smell(self, perceptor):
         """
