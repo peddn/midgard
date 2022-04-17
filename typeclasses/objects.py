@@ -162,7 +162,7 @@ class Object(DefaultObject):
 
     def at_object_creation(self):
         self.db.smell = "Es riecht nach absolut gar nichts."
-        sefl.db.gender = Gender.NEUTRUM
+        self.db.gender = Gender.NEUTRUM
     
     def return_smell(self, perceptor):
         """
