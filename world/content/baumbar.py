@@ -1,6 +1,6 @@
 from typeclasses.rooms.indoor import RoomIndoor
 
-from world.util.gender import Gender
+from world.util.grammar import Gender
 
 class BaumbarLounge(RoomIndoor):
     """
