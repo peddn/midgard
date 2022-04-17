@@ -7,7 +7,7 @@ Rooms are simple containers that has no location of their own.
 
 from evennia import DefaultRoom
 
-from world.util.gramar import Gender
+from world.util.grammar import Gender
 
 from typeclasses.objects import Object
 from commands.rooms.cmdset_room import CmdsetRoom
