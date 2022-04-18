@@ -1,8 +1,6 @@
 from evennia import Command
 from world.util.grammar import Case, get_def_art
 
-from typeclasses.characters import Character
-
 class CmdPerceptionSmell(Command):
     """
     """
@@ -11,6 +9,9 @@ class CmdPerceptionSmell(Command):
 
     def func(self):
         ""
+
+        from typeclasses.characters import Character
+
         caller = self.caller
         location = self.caller.location
 
