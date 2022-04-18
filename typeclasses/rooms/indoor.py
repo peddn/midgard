@@ -10,4 +10,5 @@ from typeclasses.rooms.default import Room
 class RoomIndoor(Room):
     """
     """
-    pass
+    def at_object_creation(self):
+        super().at_object_creation()

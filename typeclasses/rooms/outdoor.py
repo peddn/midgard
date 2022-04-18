@@ -10,4 +10,5 @@ from typeclasses.rooms.default import Room
 class RoomOutdoor(Room):
     """
     """
-    pass
+    def at_object_creation(self):
+        super().at_object_creation()
