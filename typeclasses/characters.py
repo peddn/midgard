@@ -44,6 +44,6 @@ class Character(DefaultCharacter):
         The return from this method is what
         perceptor smells when smelling at this object.
         """
-        smell = 'Es riecht nach absolut gar nichts.'
+        smell = '%s riecht nach absolut gar nichts.' % (self.key)
         return smell
         
