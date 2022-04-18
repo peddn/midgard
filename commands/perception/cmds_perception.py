@@ -31,7 +31,7 @@ class CmdPerceptionSmell(Command):
                         if isinstance(target, Character):
                             location.msg_contents("%s riecht an %s." % (caller.key, target.key), exclude=[ caller, target ])
                         else:
-                            location.msg_contents("%s riecht an %s %s." % (get_def_art(target, Case.DAT), target.key), exclude=[ caller, target ])
+                            location.msg_contents("%s riecht an %s %s." % (caller.key, get_def_art(target, Case.DAT), target.key), exclude=[ caller, target ])
                     caller.msg(target.return_smell(caller))
                 else:
                     caller.msg('Du riechst absolut gar nichts.')
