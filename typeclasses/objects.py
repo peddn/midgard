@@ -161,7 +161,7 @@ class Object(DefaultObject):
     """
 
     def at_object_creation(self):
-        self.db.smell = "Es riecht nach absolut gar nichts."
+        self.db.desc = "Ein nigelnagelneues Ding."
         self.db.gender = Gender.NEUTRUM
     
     def return_smell(self, perceptor):
@@ -169,4 +169,5 @@ class Object(DefaultObject):
         The return from this method is what
         perceptor smells when smelling at this object.
         """
-        return self.db.smell
+        smell = "Es riecht nach absolut gar nichts."
+        return smell

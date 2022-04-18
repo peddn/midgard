@@ -37,7 +37,6 @@ class Character(DefaultCharacter):
 
     def at_object_creation(self):
         self.cmdset.add(CmdsetPerception, permanent=True)
-        self.db.smell = "Es riecht nach absolut gar nichts."
         self.db.gender = Gender.MASKULIN
     
     def return_smell(self, perceptor):
@@ -45,5 +44,6 @@ class Character(DefaultCharacter):
         The return from this method is what
         perceptor smells when smelling at this object.
         """
-        return self.db.smell
+        smell = 'Es riecht nach absolut gar nichts.'
+        return smell
         

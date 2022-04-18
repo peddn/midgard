@@ -31,7 +31,6 @@ class Room(DefaultRoom):
         self.db.desc = "Ein nigelnagelneuer Raum."
         self.db.details = {}
         self.cmdset.add(CmdsetRoom, permanent=True)
-        self.db.smell = "Hier riecht es nach absolut gar nichts."
         self.db.gender = Gender.MASKULIN
 
     def return_smell(self, perceptor):
@@ -39,7 +38,8 @@ class Room(DefaultRoom):
         The return from this method is what
         perceptor smells when smelling at this object.
         """
-        return self.db.smell
+        smell = "Hier riecht es nach absolut gar nichts."
+        return smell
 
     @property
     def x(self):
