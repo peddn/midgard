@@ -1,7 +1,7 @@
 from evennia import Command
 from world.util.grammar import Case, get_def_art
 
-from typeclasses.character import Character
+from typeclasses.characters import Character
 
 class CmdPerceptionSmell(Command):
     """
