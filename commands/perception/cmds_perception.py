@@ -18,14 +18,15 @@ class CmdPerceptionSmell(Command):
             if target:
                 if hasattr(target, "return_smell"):
                     if target is caller:
-                        caller.msg("Du riechst an dir.")
-                        location.msg_contents("%s riecht an sich." % (caller.key), exclude=caller)
+                        caller.msg('Du riechst an dir.')
+                        location.msg_contents('%s riecht an sich.' % (caller.key), exclude=caller)
                     else:
-                        caller.msg("Du riechts an %s %s." % (get_def_art(target, Case.DAT), target.key))
-                        location.msg_contents("%s riecht an %s." % (caller.key, target.key), exclude=caller)
+                        caller.msg('Du riechts an %s %s.' % (get_def_art(target, Case.DAT), target.key))
+                        target.msg('%s riecht an dir.' % (caller.key))
+                        location.msg_contents("%s riecht an %s." % (caller.key, target.key), exclude=[ caller, target ])
                     caller.msg(target.return_smell(caller))
                 else:
-                    caller.msg("Du riechst absolut gar nichts.")
+                    caller.msg('Du riechst absolut gar nichts.')
             else:
                 caller.msg('An was willst du riechen?')
             
