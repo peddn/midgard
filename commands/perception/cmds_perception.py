@@ -16,7 +16,7 @@ class CmdPerceptionSmell(Command):
         if self.args:
             target = caller.search(self.args.strip())
             if target:
-                if  target.attributes.has('smell'):
+                if hasattr(target, "return_smell"):
                     if target is caller:
                         caller.msg("Du riechst an dir.")
                         location.msg_contents("%s riecht an sich." % (caller.key), exclude=caller)
