@@ -130,7 +130,8 @@ class Room(DefaultRoom):
         """
         text = super().return_appearance(looker)
 
-        new_text = self.db.desc + "\n"
+        new_text = self.get_display_name(looker) + "\n"
+        new_text = new_text + self.db.desc + "\n"
 
         exit_string = "Ausgänge:"
         for exit in self.exits:
