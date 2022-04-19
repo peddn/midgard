@@ -134,6 +134,6 @@ class Room(DefaultRoom):
 
         exit_string = "Ausgänge:"
         for exit in self.exits:
-            exit_string = exit_string + " " + exit.key
+            exit_string = exit_string + " " + exit.get_display_name(looker)
 
         return new_text + exit_string
