@@ -1,4 +1,6 @@
 from evennia import Command
+from evennia.utils import utils
+
 from world.util.grammar import Case, get_def_art
 
 class CmdPerceptionSmell(Command):
@@ -9,9 +11,6 @@ class CmdPerceptionSmell(Command):
 
     def func(self):
         ""
-
-        from typeclasses.characters import Character
-
         caller = self.caller
         location = self.caller.location
 
@@ -23,6 +22,7 @@ class CmdPerceptionSmell(Command):
                         caller.msg('Du riechst an dir.')
                         location.msg_contents('%s riecht an sich.' % (caller.key), exclude=caller)
                     else:
+                        if utils.inherits_from(target, 'typeclasses.characters.Character')
                         if isinstance(target, Character):
                             caller.msg('Du riechst an %s.' % (target.key))
                         else:
