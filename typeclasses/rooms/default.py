@@ -136,5 +136,10 @@ class Room(DefaultRoom):
         exit_string = "Ausgänge:"
         for exit in self.exits:
             exit_string = exit_string + " " + exit.get_display_name(looker)
+        
+        chars_string = "Außerdem anwesend sind:\n"
+        for content in self.contents_get(exclude=looker):
+            if utils.inherits_from(content, 'typeclasses.characters.Character'):
+                chars_string = chars_string + content.get_display_name(looker)
 
-        return new_text + exit_string
+        return new_text + exit_string + chars_string
