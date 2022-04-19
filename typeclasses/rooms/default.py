@@ -129,4 +129,6 @@ class Room(DefaultRoom):
         looker sees when looking at this object.
         """
         text = super().return_appearance(looker)
-        return text
+
+        new_text = self.db.desc
+        return new_text
