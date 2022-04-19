@@ -22,13 +22,12 @@ class CmdPerceptionSmell(Command):
                         caller.msg('Du riechst an dir.')
                         location.msg_contents('%s riecht an sich.' % (caller.key), exclude=caller)
                     else:
-                        if utils.inherits_from(target, 'typeclasses.characters.Character')
-                        if isinstance(target, Character):
+                        if utils.inherits_from(target, 'typeclasses.characters.Character'):
                             caller.msg('Du riechst an %s.' % (target.key))
                         else:
                             caller.msg('Du riechst an %s %s.' % (get_def_art(target, Case.DAT), target.key))
                         target.msg('%s riecht an dir.' % (caller.key))
-                        if isinstance(target, Character):
+                        if utils.inherits_from(target, 'typeclasses.characters.Character'):
                             location.msg_contents("%s riecht an %s." % (caller.key, target.key), exclude=[ caller, target ])
                         else:
                             location.msg_contents("%s riecht an %s %s." % (caller.key, get_def_art(target, Case.DAT), target.key), exclude=[ caller, target ])
