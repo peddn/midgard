@@ -122,3 +122,11 @@ class Room(DefaultRoom):
             for obj in self.contents_get(exclude=new_arrival):
                 if hasattr(obj, "at_new_arrival"):
                     obj.at_new_arrival(new_arrival)
+
+    def return_appearance(self, looker):
+        """
+        The return from this method is what
+        looker sees when looking at this object.
+        """
+        text = super().return_appearance(looker)
+        return text
