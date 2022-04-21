@@ -150,7 +150,7 @@ class Room(DefaultRoom):
         text = room_name + room_desc
         
         if(show_exits):
-            text = text + room_exits
+            text = text + room_exits + "\n"
         
         if(show_chars):
             text = text + room_chars
