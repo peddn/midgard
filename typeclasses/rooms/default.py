@@ -129,20 +129,30 @@ class Room(DefaultRoom):
         The return from this method is what
         looker sees when looking at this object.
         """
-        text = super().return_appearance(looker)
+        #text = super().return_appearance(looker)
 
-        new_text = self.get_display_name(looker) + "\n"
-        new_text = new_text + self.db.desc + "\n"
+        room_name = self.get_display_name(looker) + "\n"
+        room_desc = self.db.desc + "\n"
 
-        exit_string = "Ausgänge:"
+        show_exits = False
+        room_exits = "Ausgänge:\n"
         for exit in self.exits:
-            exit_string = exit_string + " " + exit.get_display_name(looker)
+            room_exits = room_exits + " " + exit.get_display_name(looker)
+            show_exits = True
         
-        exit_string = exit_string + "\n"
-        
-        chars_string = "Außerdem anwesend sind:\n"
+        show_chars = False
+        room_chars = "Außerdem anwesend sind:\n"
         for content in self.contents_get(exclude=looker):
             if utils.inherits_from(content, 'typeclasses.characters.Character'):
-                chars_string = chars_string + content.get_display_name(looker)
+                room_chars = room_chars + content.get_display_name(looker)
+                show_chars = True
 
-        return new_text + exit_string + chars_string
+        text = room_name + room_desc
+        
+        if(show_exits):
+            text = text + room_exits
+        
+        if(show_chars):
+            text = text + room_chars
+
+        return text
