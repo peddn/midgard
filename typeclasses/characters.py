@@ -45,7 +45,7 @@ class Character(DefaultCharacter):
         The return from this method is what
         perceptor smells when smelling at this object.
         """
-        return seflf.db.smell
+        return self.db.smell
     
     def at_init(self):
         """
