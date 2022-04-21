@@ -36,7 +36,6 @@ class Character(DefaultCharacter):
     """
 
     def at_object_creation(self):
-        self.cmdset.add(CmdsetPerception, permanent=True)
         self.db.gender = Gender.MASKULIN
     
     def return_smell(self, perceptor):
@@ -62,12 +61,11 @@ class Character(DefaultCharacter):
             puppeting this Object.
 
         """
-        self.msg('DEBUG: at_init')
+        #self.msg('DEBUG: at_init')
     
-    def at_pre_puppet(self, account, session):
-        super().at_pre_puppet(account, session)
-        self.msg('DEBUG: at_pre_puppet')
+
     
     def at_post_puppet(self):
         super().at_post_puppet()
-        self.msg('DEBUG: at_post_puppet')
+        self.cmdset.add(CmdsetPerception)
+
