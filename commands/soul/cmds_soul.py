@@ -35,7 +35,7 @@ class CmdSoulDeute(Command):
             self.args = [arg.strip() for arg in self.args]
             self.args = [arg.lower() for arg in self.args]
             if self.args[0] != 'auf':
-                caller.msg('Möchtest du eventulell AUF etwas deuten?')
+                caller.msg('Möchtest du eventuell |wauf|n etwas deuten?')
             else:
                 if len(self.args) > 1:
                     target = caller.search(self.args[1])
