@@ -46,4 +46,22 @@ class Character(DefaultCharacter):
         """
         smell = '%s riecht nach absolut gar nichts.' % (self.key)
         return smell
-        
+    
+    def at_post_puppet(self, **kwargs):
+        """
+        Called just after puppeting has been completed and all
+        Account<->Object links have been established.
+
+        Args:
+            **kwargs (dict): Arbitrary, optional arguments for users
+                overriding the call (unused by default).
+        Note:
+            You can use `self.account` and `self.sessions.get()` to get
+            account and sessions at this point; the last entry in the
+            list from `self.sessions.get()` is the latest Session
+            puppeting this Object.
+
+        """
+        super().at_post_puppet(kwargs)
+
+        self.msg('DEBUG: at_post_puppet')
