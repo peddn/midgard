@@ -154,6 +154,7 @@ class Room(DefaultRoom):
             if not utils.inherits_from(content, 'typeclasses.characters.Character'):
                 if content.db.is_visible:
                     room_items += content.get_display_name(looker) + '\n'
+                    show_items = True
 
         text = room_name + room_desc
         
