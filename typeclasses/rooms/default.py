@@ -132,29 +132,39 @@ class Room(DefaultRoom):
         """
         #text = super().return_appearance(looker)
 
-        room_name = self.get_display_name(looker) + "\n"
-        room_desc = self.db.desc + "\n"
+        room_name = self.get_display_name(looker) + '\n'
+        room_desc = self.db.desc + '\n'
 
         show_exits = False
-        room_exits = "Ausgänge:\n"
+        room_exits = 'Ausgänge:\n'
         for exit in self.exits:
             room_exits = room_exits + " " + exit.get_display_name(looker)
             show_exits = True
         
         show_chars = False
-        room_chars = "Außerdem anwesend sind:\n"
+        room_chars = 'Außerdem anwesend sind:\n'
         for content in self.contents_get(exclude=looker):
             if utils.inherits_from(content, 'typeclasses.characters.Character'):
                 room_chars += content.get_display_name(looker) + '\n'
                 show_chars = True
+        
+        show_items = False
+        room_items = 'Hier befindet sich:\n'
+        for content in self.contents_get(exclude=looker):
+            if not utils.inherits_from(content, 'typeclasses.characters.Character'):
+                if content.db.is_visible:
+                    room_items += content.get_display_name(looker) + '\n'
 
         text = room_name + room_desc
         
         if(show_exits):
-            text = text + room_exits + "\n"
+            text += room_exits + '\n'
         
         if(show_chars):
-            text = text + room_chars
+            text += room_chars + '\n'
+        
+        if(show_items):
+            text += room_items
 
         return text
 
