@@ -45,8 +45,6 @@ class CmdSoulDeute(Command):
                         caller.msg('So etwas wie ein %s gibt es hier nicht.' % (self.args[1]))
                 else:
                     caller.msg('Auf was möchtest du denn deuten?')
-                
-
-
-        caller.msg('Du deutest vage in der Gegend herum.')
-        location.msg_contents(caller.key + ' deutet vage in der gegend herum.', exclude=caller)
+        else:
+            caller.msg('Du deutest vage in der Gegend herum.')
+            location.msg_contents(caller.key + ' deutet vage in der gegend herum.', exclude=caller)
