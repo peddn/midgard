@@ -13,6 +13,7 @@ inheritance.
 from evennia import DefaultObject
 
 from world.util.grammar import Gender
+from world.util.volume import Volume
 
 class Object(DefaultObject):
     """
@@ -162,12 +163,23 @@ class Object(DefaultObject):
 
     def at_object_creation(self):
         self.db.desc = "Ein nigelnagelneues Ding."
+        self.db.smell = "Es riecht nach absolut gar nichts."
         self.db.gender = Gender.NEUTRUM
+        self.db.is_visible = True
+        #self.db.weight = 1
+        #self.db.volume = Volume.M
     
     def return_smell(self, perceptor):
         """
         The return from this method is what
         perceptor smells when smelling at this object.
         """
-        smell = "Es riecht nach absolut gar nichts."
-        return smell
+        return self.db.smell
+    
+    def return_appearance(self, looker):
+        return super().return_appearance(looker)
+
+class VirtualObject(Object):
+    def at_object_creation(self):
+        super().at_object_creation()
+        self.db.is_visible = False

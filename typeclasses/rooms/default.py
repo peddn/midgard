@@ -30,17 +30,18 @@ class Room(DefaultRoom):
     def at_object_creation(self):
         "This is only called when the room is first created."
         self.db.desc = "Ein nigelnagelneuer Raum."
+        self.db.smell = "Hier riecht es nach absolut gar nichts."
         self.db.details = {}
         self.cmdset.add(CmdsetRoom, permanent=True)
         self.db.gender = Gender.MASKULIN
+
 
     def return_smell(self, perceptor):
         """
         The return from this method is what
         perceptor smells when smelling at this object.
         """
-        smell = "Hier riecht es nach absolut gar nichts."
-        return smell
+        return self.db.smell
 
     @property
     def x(self):
@@ -156,3 +157,6 @@ class Room(DefaultRoom):
             text = text + room_chars
 
         return text
+
+    def create_vobject(key, aliases):
+        return create_object('typeclasses.objects.VirtualObject', key=key, aliases=aliases, home=self, location=self)

@@ -38,14 +38,14 @@ class Character(DefaultCharacter):
 
     def at_object_creation(self):
         self.db.gender = Gender.MASKULIN
+        self.db.smell = '%s riecht nach absolut gar nichts.' % (self.key)
     
     def return_smell(self, perceptor):
         """
         The return from this method is what
         perceptor smells when smelling at this object.
         """
-        smell = '%s riecht nach absolut gar nichts.' % (self.key)
-        return smell
+        return seflf.db.smell
     
     def at_init(self):
         """
