@@ -144,7 +144,7 @@ class Room(DefaultRoom):
         room_chars = "Außerdem anwesend sind:\n"
         for content in self.contents_get(exclude=looker):
             if utils.inherits_from(content, 'typeclasses.characters.Character'):
-                room_chars = room_chars + content.get_display_name(looker)
+                room_chars += content.get_display_name(looker) + '\n'
                 show_chars = True
 
         text = room_name + room_desc
