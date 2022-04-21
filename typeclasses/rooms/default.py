@@ -158,5 +158,5 @@ class Room(DefaultRoom):
 
         return text
 
-    def create_vobject(key, aliases):
+    def create_vobject(self, key, aliases):
         return create_object('typeclasses.objects.VirtualObject', key=key, aliases=aliases, home=self, location=self)
