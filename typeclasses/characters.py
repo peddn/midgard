@@ -69,5 +69,5 @@ class Character(DefaultCharacter):
         self.msg('DEBUG: at_pre_puppet')
     
     def at_post_puppet(self):
-        super.at_post_puppet()
+        super().at_post_puppet()
         self.msg('DEBUG: at_post_puppet')
