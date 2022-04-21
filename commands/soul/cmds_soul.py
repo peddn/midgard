@@ -31,7 +31,6 @@ class CmdSoulDeute(Command):
         self.args = self.args.strip()
 
         if self.args:
-            self.msg('TRUE %s' % (self.args))
             self.args = self.args.split()
             self.args = [arg.strip() for arg in self.args]
             self.args = [arg.lower() for arg in self.args]
@@ -45,7 +44,6 @@ class CmdSoulDeute(Command):
                 else:
                     caller.msg('Auf was möchtest du denn deuten?')
         else:
-            self.msg('FALSE %s' % (self.args))
             caller.msg('Du deutest vage in der Gegend herum.')
             location.msg_contents(caller.key + ' deutet vage in der gegend herum.', exclude=caller)
 
