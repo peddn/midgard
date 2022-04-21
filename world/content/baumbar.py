@@ -34,5 +34,5 @@ class BaumbarWiese(RoomOutdoor):
         super().at_object_creation()
         self.db.desc = 'Du stehst in einer wunderschönen Blumenwiese. Im Norden trohnt eine mächtige Eiche mit dem dicksten Stamm, den du jeh gesehen hast. Ein kleiner Pfad führt zur Eiche hin. Im Süden kannst du ein seltsam schimmerndes Portal erkennen.'
         self.db.gender = Gender.FEMININ
-        sefl.db.smell = "Die Luft riecht süßlich frisch nach Blüten. Einfach herrlich."
+        self.db.smell = "Die Luft riecht süßlich frisch nach Blüten. Einfach herrlich."
 
