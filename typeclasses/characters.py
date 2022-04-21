@@ -63,11 +63,12 @@ class Character(DefaultCharacter):
 
         """
         #self.msg('DEBUG: at_init')
-    
+        super().at_init()
+        self.cmdset.add(CmdsetPerception)
+        self.cmdset.add(CmdsetSoul)
 
     
     def at_post_puppet(self):
         super().at_post_puppet()
-        self.cmdset.add(CmdsetPerception)
-        self.cmdset.add(CmdsetSoul)
+
 
