@@ -44,8 +44,12 @@ class CmdSoulDeute(Command):
                             caller.msg('Du deutest auf dich.')
                             location.msg_contents('%s deutet auf sich.' % (caller.key), exclude=caller)
                         else:
-                            caller.msg('Du deutest auf ' + target.key)
-                            location.msg_contents('%s deutet auf %s' % (caller.key, target.key), exclude=caller)
+                            if utils.inherits_from(target, 'typeclasses.characters.Character'):
+                                caller.msg('Du deutest auf %s' % (target.key)
+                                location.msg_contents('%s deutet auf %s' % (caller.key, target.key), exclude=caller)
+                            else:
+                                caller.msg('Du deutest auf %s %s' % (get_def_art(target, Case.AKK), target.key)
+                                location.msg_contents('%s deutet auf %s %s' % (caller.key, get_def_art(target, Case.AKK), target.key), exclude=caller)
                 else:
                     caller.msg('Auf was möchtest du denn deuten?')
         else:
