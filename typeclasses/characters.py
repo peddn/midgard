@@ -62,6 +62,6 @@ class Character(DefaultCharacter):
             puppeting this Object.
 
         """
-        super().at_post_puppet(kwargs)
+        super().at_post_puppet()
 
         self.msg('DEBUG: at_post_puppet')
