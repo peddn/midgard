@@ -1,6 +1,6 @@
 from evennia import CmdSet
 
-from commands.soul.cmds_soul import CmdSoulKicher
+from commands.soul.cmds_soul import CmdSoulKicher, CmdSoulDeute
 
 class CmdsetSoul(CmdSet):
     """
@@ -9,5 +9,6 @@ class CmdsetSoul(CmdSet):
     key = "CmdsetSoul"
 
     def at_cmdset_creation(self):
-        """add the perception commands"""
+        """add the soul commands"""
         self.add(CmdSoulKicher())
+        self.add(CmdSoulDeute())
