@@ -67,3 +67,7 @@ class Character(DefaultCharacter):
     def at_pre_puppet(self, account, session):
         super().at_pre_puppet(account, session)
         self.msg('DEBUG: at_pre_puppet')
+    
+    def at_post_puppet(self):
+        super.at_post_puppet()
+        self.msg('DEBUG: at_post_puppet')
