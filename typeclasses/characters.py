@@ -47,7 +47,7 @@ class Character(DefaultCharacter):
         smell = '%s riecht nach absolut gar nichts.' % (self.key)
         return smell
     
-    def at_post_puppet(self, **kwargs):
+    def at_init(self):
         """
         Called just after puppeting has been completed and all
         Account<->Object links have been established.
@@ -62,6 +62,4 @@ class Character(DefaultCharacter):
             puppeting this Object.
 
         """
-        super().at_post_puppet()
-
-        self.msg('DEBUG: at_post_puppet')
+        self.msg('DEBUG: at_init')
