@@ -40,7 +40,12 @@ class CmdSoulDeute(Command):
                 if len(self.args) > 1:
                     target = caller.search(self.args[1])
                     if target:
-                        caller.msg('Du deutest auf ' + target.key)
+                        if target == caller:
+                            caller.msg('Du deutest auf dich.')
+                            location.msg_contents('%s deutet auf sich.' % (caller.key))
+                        else:
+                            caller.msg('Du deutest auf ' + target.key)
+                            location.msg_contents('%s deutet auf %s' %s (caller.key, target.key))
                 else:
                     caller.msg('Auf was möchtest du denn deuten?')
         else:
