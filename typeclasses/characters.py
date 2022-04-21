@@ -13,6 +13,7 @@ from world.util.grammar import Gender
 
 from typeclasses.objects import Object
 from commands.perception.cmdset_perception import CmdsetPerception
+from commands.soul.cmdset_soul import CmdsetSoul
 
 class Character(DefaultCharacter):
     """
@@ -68,4 +69,5 @@ class Character(DefaultCharacter):
     def at_post_puppet(self):
         super().at_post_puppet()
         self.cmdset.add(CmdsetPerception)
+        self.cmdset.add(CmdsetSoul)
 
